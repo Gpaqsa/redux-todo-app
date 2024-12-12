@@ -73,3 +73,30 @@
     cursor: pointer;
     padding: 5px 10px;
 }
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+.todo-item {
+    list-style: none;
+    padding: 8px;
+}
+
+.todo-item.completed span {
+    text-decoration: line-through;
+    color: gray;
+}
+
+.todo-item button {
+    margin-left: 10px;
+    color: red;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}

@@ -1,34 +1,35 @@
-import  { useState } from "react";
+import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import InputForm from "./InputForm.jsx";
 import TodoList from "./TodoList.jsx";
 
 const TodoPage = () => {
-    const todos = useSelector((state) => state.todos); // Access the todos from Redux state
+    const todos = useSelector((state) => state.todos);
+    console.log(todos)
     const dispatch = useDispatch();
     const [newTodo, setNewTodo] = useState("");
 
-    const addTodo = () => {
-        if (newTodo.trim() !== "") return
-            dispatch({ type: "ADD_TODO", payload: { text: newTodo } });
-            setNewTodo(""); // Clear the input field
-
+    // Handlers for actions
+    const handleAddTodo = () => {
+        if (newTodo.trim() !== "") {
+            dispatch({ type: "ADD_TODO", payload: { text: newTodo.trim() } });
+            setNewTodo(""); // Clear input field after adding
+        }
     };
 
-    const toggleTodo = (index) => {
+    const handleToggleTodo = (index) => {
         dispatch({ type: "TOGGLE_TODO", payload: { index } });
     };
 
-    const deleteTodo = (index) => {
+    const handleDeleteTodo = (index) => {
         dispatch({ type: "DELETE_TODO", payload: { index } });
     };
 
-    console.log(todos)
     return (
         <div>
             <h1>Todo List</h1>
-            <InputForm onAdd={addTodo} newTodo={newTodo} setNewTodo={setNewTodo}/>
-            <TodoList todos={todos} onToggle={toggleTodo} onDelete={deleteTodo}/>
+            <InputForm onAdd={handleAddTodo} newTodo={newTodo} setNewTodo={setNewTodo} />
+            <TodoList todos={todos} onToggle={handleToggleTodo} onDelete={handleDeleteTodo} />
         </div>
     );
 };
