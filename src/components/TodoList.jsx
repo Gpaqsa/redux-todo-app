@@ -1,9 +1,10 @@
 import Todo from "./Todo.jsx";
 
 const TodoList = ({ todos, onToggle, onDelete }) => {
+    console.log(todos)
     return (
         <ul className="todo-list">
-            {todos.todos.map((todo, index) => (
+            {todos.map((todo, index) => (
                 <Todo
                     key={todo.id}
                     todo={todo}

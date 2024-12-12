@@ -4,7 +4,7 @@ import InputForm from "./InputForm.jsx";
 import TodoList from "./TodoList.jsx";
 
 const TodoPage = () => {
-    const todos = useSelector((state) => state.todos);
+    const todos = useSelector((state) => state.todos.todos);
     console.log(todos)
     const dispatch = useDispatch();
     const [newTodo, setNewTodo] = useState("");
