@@ -8,8 +8,8 @@ const TodoList = ({ todos, onToggle, onDelete }) => {
                 <Todo
                     key={todo.id}
                     todo={todo}
-                    onToggle={() => onToggle(index)} // Pass the index or todo.id to the handler
-                    onDelete={() => onDelete(index)} // Same for delete action
+                    onToggle={() => onToggle(index)}
+                    onDelete={() => onDelete(index)}
                 />
             ))}
         </ul>
